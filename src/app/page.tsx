@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function Home(): JSX.Element {
+    const a = 1;
     return (
         <main className={styles.main}>
             <div className={styles.description}>
@@ -10,6 +11,8 @@ export default function Home(): JSX.Element {
                     <code className={styles.code}>src/app/page.tsx</code>
                 </p>
                 <div>
+
+                    {a}
                     <a
                         href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
                         target="_blank"
