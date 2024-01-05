@@ -1,3 +1,9 @@
+import { Htag } from '@/components';
+
 export default function Page() {
-    return <>Hello, Next.js!</>
+    return (
+        <>
+            <Htag tag="h1">Text</Htag>
+        </>
+    );
 }
