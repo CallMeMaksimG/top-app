@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, KeyboardEvent } from 'react';
 import cn from 'classnames';
 import styles from './Rating.module.scss';
 import StarIcon from './star.svg';
@@ -19,7 +19,7 @@ export const Rating = ({
     const constructRating = (currentRating: number) => {
         const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
             return (
-                <StarIcon
+                <span
                     className={cn(styles.star, {
                         [styles.filled]: i < currentRating,
                         [styles.editable]: isEditable,
@@ -27,7 +27,14 @@ export const Rating = ({
                     onMouseEnter={() => changeDisplay(i + 1)}
                     onMouseLeave={() => changeDisplay(rating)}
                     onClick={() => onClick(i + 1)}
-                />
+                >
+                    <StarIcon
+                        tabIndex={isEditable ? 0 : -1}
+                        onKeyDown={(e: KeyboardEvent<SVGElement>) =>
+                            isEditable && handleSpace(i + 1, e)
+                        }
+                    />
+                </span>
             );
         });
         setRatingArray(updatedArray);
@@ -44,7 +51,15 @@ export const Rating = ({
             return;
         }
         setRating(i);
-    }
+    };
+
+    const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => {
+        if (e.code !== 'Space' || !setRating) {
+            return;
+        }
+        setRating(i);
+    };
+
     return (
         <div {...props}>
             {ratingArray.map((r, i) => (
