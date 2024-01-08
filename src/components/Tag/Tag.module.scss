@@ -1,7 +1,6 @@
 .tag {
-    display: inline-block;
-
     box-sizing: border-box;
+    display: inline-block;
     margin-right: 5px;
     border-radius: 20px;
 }
@@ -23,21 +22,21 @@
 }
 
 .red {
+    font-weight: bold;
     color: var(--white);
     background: #de0000;
-    font-weight: bold;
 }
 
 .grey {
+    font-weight: bold;
     color: var(--white);
     background: #b3c0d9;
-    font-weight: bold;
 }
 
 .green {
+    font-weight: bold;
     color: var(--green);
     background-color: var(--green-light);
-    font-weight: bold;
 }
 
 .primary {

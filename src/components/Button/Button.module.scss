@@ -1,14 +1,12 @@
 .button {
-    display: inline-block;
-
     box-sizing: border-box;
+    display: inline-block;
     padding: 10px;
-
-    cursor: pointer;
+    font-size: 14px;
     text-align: center;
+    cursor: pointer;
     border: none;
     border-radius: 5px;
-    font-size: 14px;
 }
 
 .primary {
@@ -32,8 +30,9 @@
     transition: all 0.2s ease-in-out;
 
     &:hover {
-        background-color: var(--primary);
         color: var(--white);
+        background-color: var(--primary);
+
         svg {
             fill: var(--white);
         }
@@ -45,7 +44,7 @@
     margin-left: 10px;
 
     .down {
-        transform: rotate(90deg);
         transition: all 0.2s ease-in-out;
+        transform: rotate(90deg);
     }
 }

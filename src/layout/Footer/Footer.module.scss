@@ -1,12 +1,12 @@
 .footer {
     display: grid;
-    background-color: var(--primary);
-    color: var(--white);
     grid-template-columns: 1fr auto auto;
-    padding: 25px 32px;
     gap: 10px 40px;
     align-content: center;
+    padding: 25px 32px;
     font-size: 16px;
+    color: var(--white);
+    background-color: var(--primary);
 
     a {
         color: var(--white);
@@ -18,7 +18,7 @@
         }
     }
 
-    @media (max-width: 765px) {
+    @media (width <= 765px) {
         grid-template-columns: 1fr;
     }
 }
