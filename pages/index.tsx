@@ -6,7 +6,6 @@ import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
 
 function Page({ menu }: HomeProps): JSX.Element {
-    console.log(menu)
     const [rating, setRating] = useState<number>(4);
     return (
         <>
