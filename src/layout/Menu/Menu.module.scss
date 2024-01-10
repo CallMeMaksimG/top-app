@@ -7,7 +7,6 @@
     font-weight: 500;
     transition: all .2s ease-in-out;
     margin-top: 20px;
-    
     &:hover {
         svg {
             fill: var(--primary);
@@ -30,13 +29,22 @@
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
+    cursor: pointer;
 }
+
 
 .secondBlock {
     margin-top: 15px;
     margin-left: 12px;
     padding-left: 32px;
     border-left: 1px solid #DFDFDF;
+}
+.secondLevelBlock {
+    display: none;
+
+    &Open {
+        display: block;
+    }
 }
 
 .secondLevelBlockOpen:last-child {
