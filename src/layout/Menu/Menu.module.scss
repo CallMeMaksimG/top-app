@@ -1,0 +1,62 @@
+.firstLevel {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 20px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all .2s ease-in-out;
+    margin-top: 20px;
+    
+    &:hover {
+        svg {
+            fill: var(--primary);
+        }
+        color: var(--primary);
+    }
+
+    &Active {
+        color: var(--primary);
+
+        svg {
+            fill: var(--primary);
+        }
+    }
+}
+
+.secondLevel {
+    margin-bottom: 10px;
+    color: var(--grey-dark);
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.secondBlock {
+    margin-top: 15px;
+    margin-left: 12px;
+    padding-left: 32px;
+    border-left: 1px solid #DFDFDF;
+}
+
+.secondLevelBlockOpen:last-child {
+    margin-bottom: 20px;
+}
+
+.thirdLevel {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--grey-dark);
+    color: #787D85;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .2s ease-in-out;
+
+    &Active {
+        color: var(--primary);
+    }
+
+    &:hover {
+        color: var(--primary);
+    }
+}
