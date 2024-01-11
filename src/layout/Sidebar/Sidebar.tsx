@@ -1,7 +1,15 @@
+import cn from 'classnames';
 import { Menu } from '../Menu/Menu';
 import { SidebarProps } from './Sidebar.props';
-// import styles from './Sidebar.module.scss';
+import styles from './Sidebar.module.scss';
+import Logo from '../logo.svg';
 
-export const Sidebar = ({ ...props }: SidebarProps): JSX.Element => {
-    return <div {...props}><Menu /></div>;
+export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
+    return (
+        <div {...props} className={cn(className, styles.sidebar)}>
+            <Logo className={styles.logo}/>
+            <div>поиск</div>
+            <Menu />
+        </div>
+    );
 };
