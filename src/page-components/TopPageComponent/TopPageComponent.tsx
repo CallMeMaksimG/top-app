@@ -36,7 +36,7 @@ export const TopPageComponent = ({
             </div>
             <div className={styles.hh}>
                 {firsCategory === TopLevelCategory.Courses && (
-                    <HhData {...page.hh}></HhData>
+                    <HhData children={undefined} {...page.hh}></HhData>
                 )}
             </div>
         </div>
