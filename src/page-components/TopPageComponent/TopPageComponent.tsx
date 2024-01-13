@@ -6,12 +6,22 @@ import { Card } from '@/components/Card/Card';
 import { HhData } from '@/components/HhData/HhData';
 import { TopLevelCategory } from '../../../interfaces/page.interface';
 import { SortEnum } from '@/components/Sort/Sort.props';
+import { useReducer } from 'react';
+import { sortReducer } from './sort.reducer';
 
 export const TopPageComponent = ({
     page,
     products,
     firsCategory,
 }: TopPageComponentProps): JSX.Element => {
+    const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(
+        sortReducer,
+        { products, sort: SortEnum.Rating }
+    );
+
+    const setSort = (sort: SortEnum) => {
+        dispatchSort({ type: sort });
+    };
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>
@@ -21,11 +31,11 @@ export const TopPageComponent = ({
                         {products.length}
                     </Tag>
                 )}
-                <Sort sort={SortEnum.Rating} setSort={() => {}}/>
+                <Sort sort={sort} setSort={setSort} />
             </div>
             <div>
-                {products &&
-                    products.map((p) => <div key={p._id}>{p.title}</div>)}
+                {sortedProducts &&
+                    sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}
             </div>
             <div className={styles.hhTitle}>
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
@@ -47,9 +57,18 @@ export const TopPageComponent = ({
                     <Advantages advantages={page.advantages} />
                 </>
             )}
-            {page.seoText && <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText}}></div>}
+            {page.seoText && (
+                <div
+                    className={styles.seo}
+                    dangerouslySetInnerHTML={{ __html: page.seoText }}
+                ></div>
+            )}
             <Htag tag="h2">Получаемые навыки</Htag>
-            {page.tags.map(t => <Tag color='primary' key={t}>{t}</Tag>)}
+            {page.tags.map((t) => (
+                <Tag color="primary" key={t}>
+                    {t}
+                </Tag>
+            ))}
         </div>
     );
 };
