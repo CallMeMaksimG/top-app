@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import styles from './TopPageComponent.module.scss';
 import { TopPageComponentProps } from './TopPageComponent.props';
-import { Htag, Tag } from '@/components';
+import { Advantages, Htag, P, Tag } from '@/components';
 import { Card } from '@/components/Card/Card';
 import { HhData } from '@/components/HhData/HhData';
 import { TopLevelCategory } from '../../../interfaces/page.interface';
@@ -35,10 +35,20 @@ export const TopPageComponent = ({
                 )}
             </div>
             <div className={styles.hh}>
-                {firsCategory === TopLevelCategory.Courses && (
+                {firsCategory === TopLevelCategory.Courses && page.hh && (
                     <HhData children={undefined} {...page.hh}></HhData>
                 )}
             </div>
+
+            {page.advantages && page.advantages.length > 0 && (
+                <>
+                    <Htag tag="h2">Преимущества</Htag>
+                    <Advantages advantages={page.advantages} />
+                </>
+            )}
+            {page.seoText && <P>{page.seoText}</P>}
+            <Htag tag="h2">Получаемые навыки</Htag>
+            {page.tags.map(t => <Tag color='primary' key={t}>{t}</Tag>)}
         </div>
     );
 };
