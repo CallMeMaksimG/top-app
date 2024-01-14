@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import styles from './TopPageComponent.module.scss';
 import { TopPageComponentProps } from './TopPageComponent.props';
-import { Advantages, Htag, P, Sort, Tag } from '@/components';
+import { Advantages, Htag, P, Product, Sort, Tag } from '@/components';
 import { HhData } from '@/components/HhData/HhData';
 import { TopLevelCategory } from '../../../interfaces/page.interface';
 import { SortEnum } from '@/components/Sort/Sort.props';
@@ -34,7 +34,7 @@ console.log(page)
             </div>
             <div>
                 {sortedProducts &&
-                    sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}
+                    sortedProducts.map((p) => <Product key={p._id} product={p}></Product>)}
             </div>
             <div className={styles.hhTitle}>
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
