@@ -1,10 +1,9 @@
-import { Button, Htag, P, Rating, Tag } from '@/components';
+import { Button, Htag, Input, P, Rating, Tag } from '@/components';
 import { withLayout } from '@/layout/Layout';
 import { GetStaticProps } from 'next';
 import { useState } from 'react';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
-
 
 function Page({ menu }: HomeProps): JSX.Element {
     const [rating, setRating] = useState<number>(4);
@@ -33,6 +32,7 @@ function Page({ menu }: HomeProps): JSX.Element {
                 HH
             </Tag>
             <Rating rating={rating} isEditable setRating={setRating}></Rating>
+            <Input />
         </>
     );
 }
@@ -47,7 +47,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
             firstCategory,
         }
     );
-
 
     return {
         props: {
