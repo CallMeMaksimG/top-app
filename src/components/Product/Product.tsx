@@ -3,7 +3,8 @@ import { ProductProps } from './Product.props';
 import styles from './Product.module.scss';
 import { Card } from '../Card/Card';
 import { Button, Divider, Rating, Tag } from '..';
-import { priceRu } from '../../../helpers/helpers';
+import { declOfNum, priceRu } from '../../../helpers/helpers';
+import { fi } from 'date-fns/locale';
 
 export const Product = ({
     product,
@@ -46,11 +47,26 @@ export const Product = ({
             <div className={styles.priceTitle}>цена</div>
             <div className={styles.creditTitle}>кредит</div>
             <div className={styles.rateTitle}>
-                {product.reviewCount} отзывов
+                {product.reviewCount}{' '}
+                {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
             </div>
             <Divider className={styles.hr}></Divider>
             <div className={styles.description}>{product.description}</div>
-            <div className={styles.feature}>feature</div>
+            <div className={styles.feature}>
+                {product.characteristics.map((c) => {
+                    return (
+                        <div className={styles.characteristics} key={c.name}>
+                            <span className={styles.characteristicsName}>
+                                {c.name}
+                            </span>
+                            <span className={styles.characteristicsDots}></span>
+                            <span className={styles.characteristicsValue}>
+                                {c.value}
+                            </span>
+                        </div>
+                    );
+                })}
+            </div>
             <div className={styles.advBlock}>
                 {product.advantages && (
                     <div className={styles.advantages}>
