@@ -4,7 +4,7 @@ import styles from './Product.module.scss';
 import { Card } from '../Card/Card';
 import { Button, Divider, Rating, Tag } from '..';
 import { declOfNum, priceRu } from '../../../helpers/helpers';
-import { fi } from 'date-fns/locale';
+import Image from 'next/image';
 
 export const Product = ({
     product,
@@ -14,9 +14,11 @@ export const Product = ({
     return (
         <Card className={styles.product}>
             <div className={styles.logo}>
-                <img
+                <Image
                     src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
                     alt={product.title}
+                    height={70}
+                    width={70}
                 />
             </div>
             <div className={styles.title}>{product.title}</div>

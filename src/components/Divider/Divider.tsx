@@ -7,6 +7,6 @@ export const Divider = ({
     ...props
 }: DividerProps): JSX.Element => {
     return (
-       <hr className={cn(className, styles.hr)} {...props}/>
+       <hr className={cn(className, styles.hr, styles.hr2)} {...props}/>
     );
 };
