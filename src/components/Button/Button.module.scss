@@ -42,9 +42,9 @@
 .arrow {
     display: inline-block;
     margin-left: 10px;
+}
 
-    .down {
+.down {
         transition: all 0.2s ease-in-out;
         transform: rotate(90deg);
-    }
 }
