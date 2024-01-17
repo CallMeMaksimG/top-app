@@ -11,7 +11,12 @@ export const ReviewForm = ({
     className,
     ...props
 }: ReviewFormProps): JSX.Element => {
-    const { register, control, handleSubmit} = useForm<IReviewForm>();
+    const {
+        register,
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IReviewForm>();
     const onSubmit = (data: IReviewForm) => {
         console.log(data);
     };
@@ -19,12 +24,21 @@ export const ReviewForm = ({
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={cn(styles.reviewForm, className)} {...props}>
                 <Input
-                    {...register('name')}
+                    {...register('name', {
+                        required: { value: true, message: 'Заполните имя' },
+                    })}
+                    error={errors.name}
                     placeholder="Имя"
                 />
                 <Input
-                    {...register('title')}
+                    {...register('title', {
+                        required: {
+                            value: true,
+                            message: 'Заполните заголовок',
+                        },
+                    })}
                     placeholder="Заголовок отзыва"
+                    error={errors.title}
                     className={styles.title}
                 />
                 <div className={styles.rating}>
@@ -43,8 +57,14 @@ export const ReviewForm = ({
                     />
                 </div>
                 <Textarea
-                    {...register('description')}
+                    {...register('description', {
+                        required: {
+                            value: true,
+                            message: 'Заполните текст отзыва',
+                        },
+                    })}
                     placeholder="Текст отзыва"
+                    error={errors.description}
                     className={styles.description}
                 />
                 <div className={styles.submit}>

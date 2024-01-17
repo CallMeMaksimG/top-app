@@ -1,3 +1,7 @@
+.textareaWrapper {
+    position: relative;
+}
+
 .textarea {
     padding: 7px 15px;
     color: var(--black);
@@ -9,8 +13,23 @@
     font-size: 16px;
     line-height: 22px;
     font-family: var(--font-family);
+    width: 100%;
+    box-sizing: border-box;
 
     &::placeholder {
         color: var(--grey);
     }
 }
+
+.error {
+    border: 1px solid var(--red);
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    color: var(--red);
+}
+
+
