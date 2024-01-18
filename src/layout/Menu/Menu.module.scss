@@ -5,7 +5,7 @@
     align-items: center;
     font-size: 18px;
     font-weight: 500;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     margin-top: 20px;
     &:hover {
         svg {
@@ -32,33 +32,24 @@
     cursor: pointer;
 }
 
-
 .secondBlock {
     margin-top: 15px;
     margin-left: 12px;
     padding-left: 32px;
-    border-left: 1px solid #DFDFDF;
+    border-left: 1px solid #dfdfdf;
 }
 .secondLevelBlock {
-    display: none;
-
-    &Open {
-        display: block;
-    }
-}
-
-.secondLevelBlockOpen:last-child {
-    margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .thirdLevel {
     display: block;
     margin-bottom: 10px;
     color: var(--grey-dark);
-    color: #787D85;
+    color: #787d85;
     font-size: 14px;
     font-weight: 500;
-    transition: color .2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 
     &Active {
         color: var(--primary);
