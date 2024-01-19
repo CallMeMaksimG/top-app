@@ -11,7 +11,6 @@
 }
 
 .header {
-    display: none;
     grid-area: header;
 }
 
@@ -33,16 +32,13 @@
         display: none!important;
     }
 
-    .header {
-        display: block;
-    }
-
     .wrapper {
         grid-template-areas:
             'header'
             'body'
             'footer';
         grid-template-columns: minmax(320px, 1fr);
+        gap: 10px;
     }
 
     .body {

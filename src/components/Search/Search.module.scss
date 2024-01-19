@@ -3,8 +3,9 @@
     width: 100%;
 }
 
-.input {
-    width: 87%;
+.input input {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .button {
