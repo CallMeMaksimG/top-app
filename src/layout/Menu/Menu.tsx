@@ -19,7 +19,7 @@ export const Menu = (): JSX.Element => {
         visible: {
             marginBottom: 20,
             transition: {
-                when: 'beforeChidren',
+                when: 'beforeChildren',
                 staggerChildren: 0.1,
             }
         },

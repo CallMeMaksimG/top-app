@@ -1,17 +1,18 @@
 import cn from 'classnames';
+import { motion } from 'framer-motion';
 import { ProductProps } from './Product.props';
 import styles from './Product.module.scss';
 import { Card } from '../Card/Card';
 import { Button, Divider, Rating, Review, ReviewForm, Tag } from '..';
 import { declOfNum, priceRu } from '../../../helpers/helpers';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 
-export const Product = ({
+export const Product = motion(forwardRef(({
     product,
     className,
     ...props
-}: ProductProps): JSX.Element => {
+}: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
     const reviewRef = useRef<HTMLDivElement>(null);
     const scrollToReview = () => {
@@ -20,9 +21,9 @@ export const Product = ({
             behavior: 'smooth',
             block: 'start'
         });
-    }
+    };
     return (
-        <div className={className} {...props}>
+        <div className={className} {...props} ref={ref}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
                     <Image
@@ -137,4 +138,4 @@ export const Product = ({
             </Card>
         </div>
     );
-};
+}));
