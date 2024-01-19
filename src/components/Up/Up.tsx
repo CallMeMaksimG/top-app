@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import styles from './Up.module.scss';
 import UpIcon from './up.svg';
 import { motion, useAnimation } from 'framer-motion';
