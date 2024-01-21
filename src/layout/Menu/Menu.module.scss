@@ -30,6 +30,7 @@
     font-weight: 300;
     text-transform: uppercase;
     cursor: pointer;
+    outline-offset: -1px;
 }
 
 .secondBlock {
@@ -50,6 +51,7 @@
     font-size: 14px;
     font-weight: 500;
     transition: color 0.2s ease-in-out;
+    outline-offset: -1px;
 
     &Active {
         color: var(--primary);

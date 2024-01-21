@@ -3,7 +3,6 @@ import styles from './Button.module.scss';
 import { ButtonProps } from './Button.props';
 import ArrowIcon from './arrow.svg';
 import cn from 'classnames';
-import { useEffect } from 'react';
 
 export const Button = ({
     appearance,
@@ -13,7 +12,7 @@ export const Button = ({
     ...props
 }: ButtonProps): JSX.Element => {
     const scale = useMotionValue(1);
-    
+
     return (
         <motion.button
             whileHover={{ scale: 1.05 }}
