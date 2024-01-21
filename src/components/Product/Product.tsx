@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { ProductProps } from './Product.props';
 import styles from './Product.module.scss';
@@ -28,6 +27,7 @@ export const Product = motion(
                     behavior: 'smooth',
                     block: 'start',
                 });
+                reviewRef.current?.focus();
             };
             return (
                 <div className={className} {...props} ref={ref}>
@@ -165,6 +165,7 @@ export const Product = motion(
                             color="blue"
                             className={styles.review}
                             ref={reviewRef}
+                            tabIndex={isReviewOpened ? 0 : -1}
                         >
                             {product.reviews.map((r) => (
                                 <div key={r._id}>
@@ -172,7 +173,10 @@ export const Product = motion(
                                     <Divider />
                                 </div>
                             ))}
-                            <ReviewForm productId={product._id} />
+                            <ReviewForm
+                                productId={product._id}
+                                isOpened={isReviewOpened}
+                            />
                         </Card>
                     </motion.div>
                 </div>

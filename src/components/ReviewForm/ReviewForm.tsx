@@ -11,6 +11,7 @@ import { useState } from 'react';
 
 export const ReviewForm = ({
     productId,
+    isOpened,
     className,
     ...props
 }: ReviewFormProps): JSX.Element => {
@@ -48,6 +49,7 @@ export const ReviewForm = ({
                     })}
                     error={errors.name}
                     placeholder="Имя"
+                    tabIndex={isOpened ? 0 : -1}
                 />
                 <Input
                     {...register('title', {
@@ -59,6 +61,7 @@ export const ReviewForm = ({
                     placeholder="Заголовок отзыва"
                     error={errors.title}
                     className={styles.title}
+                    tabIndex={isOpened ? 0 : -1}
                 />
                 <div className={styles.rating}>
                     <span>Оценка: </span>
@@ -78,6 +81,7 @@ export const ReviewForm = ({
                                 ref={field.ref}
                                 setRating={field.onChange}
                                 error={errors.rating}
+                                tabIndex={isOpened ? 0 : -1}
                             />
                         )}
                     />
@@ -92,9 +96,12 @@ export const ReviewForm = ({
                     placeholder="Текст отзыва"
                     error={errors.description}
                     className={styles.description}
+                    tabIndex={isOpened ? 0 : -1}
                 />
                 <div className={styles.submit}>
-                    <Button appearance="primary">Отправить</Button>
+                    <Button appearance="primary" tabIndex={isOpened ? 0 : -1}>
+                        Отправить
+                    </Button>
                     <span className={styles.info}>
                         * Перед публикацией отзыв пройдет предварительную
                         модерацию и проверку
@@ -109,13 +116,19 @@ export const ReviewForm = ({
                     <div>
                         Спасибо, ваш отзыв будет опубликован после проверки
                     </div>
-                    <CloseIcon className={styles.close} onClick={() => setIsSuccess(false)}/>
+                    <CloseIcon
+                        className={styles.close}
+                        onClick={() => setIsSuccess(false)}
+                    />
                 </div>
             )}
             {error && (
                 <div className={cn(styles.error, styles.panel)}>
                     Что-то пошло не так, попробуйте обновить страницу.
-                    <CloseIcon className={styles.close} onClick={() => setError(undefined)}/>
+                    <CloseIcon
+                        className={styles.close}
+                        onClick={() => setError(undefined)}
+                    />
                 </div>
             )}
         </form>
