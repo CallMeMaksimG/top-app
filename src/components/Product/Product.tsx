@@ -166,6 +166,7 @@ export const Product = motion(
                                 className={styles.reviewButton}
                                 appearance="ghost"
                                 arrow={isReviewOpened ? 'down' : 'right'}
+                                aria-expanded={isReviewOpened}
                             >
                                 Читать отзывы
                             </Button>
