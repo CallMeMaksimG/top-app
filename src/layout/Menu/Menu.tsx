@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import styles from './Menu.module.scss';
 import { AppContext } from '@/context/app.context';
 import { useContext, useState } from 'react';
@@ -15,14 +15,17 @@ export const Menu = (): JSX.Element => {
     const { menu, setMenu, firstCategory } = useContext(AppContext);
     const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
     const router = useRouter();
+    const shouldReduceMotion = useReducedMotion();
 
     const variants = {
         visible: {
             marginBottom: 20,
-            transition: {
-                when: 'beforeChildren',
-                staggerChildren: 0.1,
-            },
+            transition: shouldReduceMotion
+                ? {}
+                : {
+                      when: 'beforeChildren',
+                      staggerChildren: 0.1,
+                  },
         },
         hidden: { marginBottom: 0 },
     };
@@ -33,7 +36,7 @@ export const Menu = (): JSX.Element => {
             height: 'auto',
             marginBottom: 10,
         },
-        hidden: { opacity: 0, height: 0 },
+        hidden: { opacity: shouldReduceMotion ? 1 : 0, height: 0 },
     };
 
     const openSecondLevel = (secondCategory: string) => {
@@ -143,7 +146,11 @@ export const Menu = (): JSX.Element => {
                             [styles.thirdLevelActive]:
                                 `/${route}/${p.alias}` === router.asPath,
                         })}
-                        aria-current={`/${route}/${p.alias}` === router.asPath ? 'page' : false}
+                        aria-current={
+                            `/${route}/${p.alias}` === router.asPath
+                                ? 'page'
+                                : false
+                        }
                     >
                         {p.category}
                     </a>
@@ -153,7 +160,11 @@ export const Menu = (): JSX.Element => {
     };
     return (
         <nav className={styles.menu} role="navigation">
-            {announce && <span role="log" className='visualyHidden'>{announce === 'opened' ? 'развернуто' : 'свернуто'}</span>}
+            {announce && (
+                <span role="log" className="visualyHidden">
+                    {announce === 'opened' ? 'развернуто' : 'свернуто'}
+                </span>
+            )}
             {buildFirstLevel()}
         </nav>
     );
