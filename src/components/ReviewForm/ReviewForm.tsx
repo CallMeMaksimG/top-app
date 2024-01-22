@@ -21,7 +21,7 @@ export const ReviewForm = ({
         handleSubmit,
         formState: { errors },
         reset,
-        clearErrors
+        clearErrors,
     } = useForm<IReviewForm>();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [error, setError] = useState<string>();
@@ -118,26 +118,32 @@ export const ReviewForm = ({
                 </div>
             </div>
             {isSuccess && (
-                <div className={cn(styles.success, styles.panel)}>
+                <div className={cn(styles.success, styles.panel)} role="alert">
                     <div className={styles.successTitle}>
                         Ваш отзыв отправлен
                     </div>
                     <div>
                         Спасибо, ваш отзыв будет опубликован после проверки
                     </div>
-                    <CloseIcon
-                        className={styles.close}
+                    <button
                         onClick={() => setIsSuccess(false)}
-                    />
+                        className={styles.close}
+                        aria-label="Закрыть оповещение"
+                    >
+                        <CloseIcon />
+                    </button>
                 </div>
             )}
             {error && (
                 <div className={cn(styles.error, styles.panel)}>
                     Что-то пошло не так, попробуйте обновить страницу.
-                    <CloseIcon
+                    <button
                         className={styles.close}
                         onClick={() => setError(undefined)}
-                    />
+                        aria-label="Закрыть оповещение"
+                    >
+                        <CloseIcon />
+                    </button>
                 </div>
             )}
         </form>
