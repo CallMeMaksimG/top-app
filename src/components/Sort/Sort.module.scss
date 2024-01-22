@@ -30,6 +30,10 @@
     }
 }
 
+.sortName {
+    display: none;
+}
+
 .sort button:not(.active) {
     grid-template-columns: 1fr;
 }
