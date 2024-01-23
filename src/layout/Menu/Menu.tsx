@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import styles from './Menu.module.scss';
 import { AppContext } from '@/context/app.context';
-import { useContext, useState } from 'react';
+import { useContext, useState, KeyboardEvent } from 'react';
 import cn from 'classnames';
 import {
     PageItem,

@@ -4,7 +4,7 @@ import styles from './Layout.module.scss';
 import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
 import { Footer } from './Footer/Footer';
-import { FunctionComponent, useRef, useState } from 'react';
+import { FunctionComponent, useRef, useState, KeyboardEvent } from 'react';
 import { AppContextProvider, IAppContext } from '@/context/app.context';
 import { Up } from '@/components';
 

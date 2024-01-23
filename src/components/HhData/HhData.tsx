@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { HhDataProps } from './HhData.props';
 import styles from './HhData.module.scss';
 import { Card } from '../Card/Card';

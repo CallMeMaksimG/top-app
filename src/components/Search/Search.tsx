@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { SearchProps } from './Search.props';
 import styles from './Search.module.scss';
 import { Button, Input } from '..';
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import GlassIcon from './glass.svg';
 import { useRouter } from 'next/router';
 
