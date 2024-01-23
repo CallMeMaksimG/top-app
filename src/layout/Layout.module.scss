@@ -28,20 +28,21 @@
 }
 
 .skipLink {
-    display: block;
     position: fixed;
-    left: 100px;
     top: 0;
-    overflow: hidden;
+    left: 100px;
+    display: block;
     height: 0;
-    background-color: var(--primary);
+    overflow: hidden;
     color: var(--white);
+    background-color: var(--primary);
 }
 
 .displayed {
     height: auto;
 }
-@media (max-width: 765px) {
+
+@media (width <= 765px) {
     .sidebar {
         display: none !important;
     }

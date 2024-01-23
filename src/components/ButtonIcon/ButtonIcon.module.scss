@@ -1,4 +1,7 @@
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -6,13 +9,11 @@
     border-radius: 10px;
     box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
     transition: background 0.2s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .primary {
     background-color: var(--primary);
+
     svg * {
         fill: var(--white);
     }
@@ -24,6 +25,7 @@
 
 .white {
     background-color: var(--white);
+
     svg * {
         fill: var(--primary);
     }
@@ -32,6 +34,7 @@
         svg * {
             fill: var(--white);
         }
+
         background-color: var(--primary);
     }
 }

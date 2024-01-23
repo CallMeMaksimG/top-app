@@ -3,14 +3,16 @@
     grid-template-columns: 24px 1fr;
     gap: 20px;
     align-items: center;
+    margin-top: 20px;
     font-size: 18px;
     font-weight: 500;
     transition: all 0.2s ease-in-out;
-    margin-top: 20px;
+
     &:hover {
         svg {
             fill: var(--primary);
         }
+
         color: var(--primary);
     }
 
@@ -24,46 +26,46 @@
 }
 
 .firstLevelList {
-    list-style: none;
     padding: 0;
+    list-style: none;
 }
 
 .secondLevel {
+    padding: 0;
     margin-bottom: 10px;
-    color: var(--grey-dark);
     font-size: 12px;
     font-weight: 300;
+    color: var(--grey-dark);
     text-transform: uppercase;
     cursor: pointer;
-    outline-offset: -1px;
-    border: none;
     background-color: transparent;
-    padding: 0;
+    border: none;
+    outline-offset: -1px;
 }
 
 .secondBlock {
+    padding: 0 0 0 32px;
     margin-top: 15px;
     margin-left: 12px;
-    padding: 0 0 0 32px;
-    border-left: 1px solid #dfdfdf;
     list-style: none;
+    border-left: 1px solid #dfdfdf;
 }
 
 .secondLevelBlock {
+    padding: 0;
     overflow: hidden;
     list-style: none;
-    padding: 0;
 }
 
 .thirdLevel {
     display: block;
     margin-bottom: 10px;
-    color: var(--grey-dark);
-    color: #787d85;
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s ease-in-out;
+    color: var(--grey-dark);
+    color: #787d85;
     outline-offset: -1px;
+    transition: color 0.2s ease-in-out;
 
     &Active {
         color: var(--primary);

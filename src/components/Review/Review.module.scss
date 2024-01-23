@@ -1,11 +1,10 @@
 .review {
     display: grid;
     grid-template-columns: [start] auto 1fr auto auto [end];
-
-    align-items: center;
     gap: 10px;
-    line-height: 24px;
+    align-items: center;
     margin-bottom: 20px;
+    line-height: 24px;
 }
 
 .description {
@@ -20,22 +19,25 @@
     font-weight: bold;
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
     .review {
         grid-template-columns: [start] 30px [titlestart] auto [dateend] 1fr [end];
     }
+
     .title {
         grid-column: titlestart / end;
     }
+
     .date {
         grid-column: start / dateend;
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .date {
         grid-column: start / end;
     }
+
     .rating {
         grid-column: start / end;
     }
