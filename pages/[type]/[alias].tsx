@@ -16,21 +16,29 @@ import Head from 'next/head';
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
     return (
         <>
-            <Head>
-                <title>{page.metaTitle}</title>
-                <meta name="description" content={page.metaDiscription} />
-                <meta property="og:title" content={page.metaTitle} />
-                <meta
-                    property="og:description"
-                    content={page.metaDiscription}
-                />
-                <meta property="og:type" content="article" />
-            </Head>
-            <TopPageComponent
-                firsCategory={firstCategory}
-                page={page}
-                products={products}
-            />
+            {page && products && (
+                <>
+                    {' '}
+                    <Head>
+                        <title>{page.metaTitle}</title>
+                        <meta
+                            name="description"
+                            content={page.metaDiscription}
+                        />
+                        <meta property="og:title" content={page.metaTitle} />
+                        <meta
+                            property="og:description"
+                            content={page.metaDiscription}
+                        />
+                        <meta property="og:type" content="article" />
+                    </Head>
+                    <TopPageComponent
+                        firsCategory={firstCategory}
+                        page={page}
+                        products={products}
+                    />
+                </>
+            )}
         </>
     );
 }
