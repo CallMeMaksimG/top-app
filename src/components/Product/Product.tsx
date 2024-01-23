@@ -18,8 +18,8 @@ export const Product = motion(
             const reviewRef = useRef<HTMLDivElement>(null);
 
             const variants = {
-                visible: { opacity: 1, height: 'auto' },
-                hidden: { opacity: 0, height: 0 },
+                visible: { opacity: 1, height: 'auto', overflow: 'visible' },
+                hidden: { opacity: 0, height: 0, overflow: 'hidden' },
             };
             const scrollToReview = () => {
                 setIsReviewOpened(true);
